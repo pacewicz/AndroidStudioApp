@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context="acevedochipasociados.androidstudioapp.MainActivity">
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Benchmark Test"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id ="@+id/boton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EMPEZAR" />
+
+    <TextView
+        android:id ="@+id/Texto"
+        android:layout_width="match_parent"
+        android:scrollbars = "vertical"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="" />
+
+</android.widget.LinearLayout>
