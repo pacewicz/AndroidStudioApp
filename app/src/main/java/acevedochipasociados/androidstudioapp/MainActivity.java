@@ -1,23 +1,15 @@
 package acevedochipasociados.androidstudioapp;
 
 import android.app.ActivityManager;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
-import java.io.File;
-import java.io.OutputStreamWriter;
-import java.nio.file.Watchable;
 import java.util.ArrayList;
-import java.util.Random;
-
-
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -97,13 +89,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "22 28" ,"22 25" ,"46 42" ,"38 42" ,"35 38" ,"35 46" ,
             "49 41" ,"49 47" ,"48 34" ,"48 39" ,"34 39"};
 
-    public void FloatingPoint() {
+    public void FloatingPoint(int iterations) {
         long watch = System.currentTimeMillis();
-        Texto.setText(Texto.getText().toString() +"Start : Floating Point \n");
-        for (int i = 0; i < 4; i++)
+        double[] a1 = new double[iterations];
+        double[] a2 = new double[iterations];
+
+        for (int i = 0; i < iterations; i++)
         {
-            P.Cos(P.Decimal(), 1000);
-            P.Sin(P.Decimal(), 1000);
+            a1[i] = P.Decimal();
+            a2[i] = P.Decimal();
+        }
+        watch = System.currentTimeMillis() - watch;
+        Texto.setText(Texto.getText().toString() +" Random*"+iterations*2+" : " + watch+ " ms \n");
+        watch = System.currentTimeMillis();
+        Texto.setText(Texto.getText().toString() +"Start : Floating Point^"+iterations+" \n");
+        for (int i = 0; i < iterations; i++)
+        {
+            P.Cos(a1[i], 1000);
+            P.Sin(a2[i], 1000);
 
         }
         watch = System.currentTimeMillis() - watch;
@@ -115,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         long watch = System.currentTimeMillis();
         Texto.setText(Texto.getText().toString() + "Start : Process \n");
 
-        FloatingPoint();
+        FloatingPoint(40);
         Sorts();
         executer();
         ExecuterCod();
